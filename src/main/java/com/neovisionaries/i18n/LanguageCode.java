@@ -238,6 +238,11 @@ public enum LanguageCode {
   /**
    * <a href="https://en.wikipedia.org/wiki/Bihari_languages">Bihari</a>
    * ({@link LanguageAlpha3Code#bih bih}).
+   *
+   * @see <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry"
+   * >IANA Language Subtag Registry</a>
+   * @deprecated The IANA Language Subtag Registry deprecated the {@code bh}
+   * subtag in favour of {@link LanguageAlpha3Code#bih bih}.
    */
   @Deprecated bh() {
     @Override
@@ -1506,7 +1511,7 @@ public enum LanguageCode {
   },
 
   /**
-   * <a href="https://en.wikipedia.org/wiki/Pali">Pali/a>
+   * <a href="https://en.wikipedia.org/wiki/Pali">Pali</a>
    * ({@link LanguageAlpha3Code#pli pli}).
    */
   pi() {
