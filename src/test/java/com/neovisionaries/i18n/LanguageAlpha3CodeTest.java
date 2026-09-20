@@ -15,1083 +15,1079 @@ import static com.neovisionaries.i18n.LanguageAlpha3Code.Usage.TERMINOLOGY;
 import static com.neovisionaries.i18n.LanguageAlpha3Code.getByCode;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class LanguageAlpha3CodeTest {
+class LanguageAlpha3CodeTest {
   @Test
   public void test1() {
-    assertNull(getByCode(null));
+    assertThat(getByCode(null)).isNull();
   }
 
 
   @Test
   public void test2() {
-    assertNull(getByCode(""));
+    assertThat(getByCode("")).isNull();
   }
 
 
   @Test
   public void test3() {
-    assertNull(getByCode("?"));
+    assertThat(getByCode("?")).isNull();
   }
 
 
   @Test
   public void test4() {
-    assertNull(getByCode("??"));
+    assertThat(getByCode("??")).isNull();
   }
 
 
   @Test
   public void test5() {
-    assertNull(getByCode("???"));
+    assertThat(getByCode("???")).isNull();
   }
 
 
   @Test
   public void test6() {
-    assertNull(getByCode("????"));
+    assertThat(getByCode("????")).isNull();
   }
 
 
   @Test
   public void test7() {
-    assertSame(LanguageAlpha3Code.jpn, getByCode("jpn"));
+    assertThat(getByCode("jpn")).isSameAs(LanguageAlpha3Code.jpn);
   }
 
 
   @Test
   public void test8() {
-    assertNull(getByCode("JPN"));
+    assertThat(getByCode("JPN")).isNull();
   }
 
 
   @Test
   public void test9() {
-    assertSame(LanguageAlpha3Code.jpn, getByCode("jpn", true));
+    assertThat(getByCode("jpn", true)).isSameAs(LanguageAlpha3Code.jpn);
   }
 
 
   @Test
   public void test10() {
-    assertNull(getByCode("JPN", true));
+    assertThat(getByCode("JPN", true)).isNull();
   }
 
 
   @Test
   public void test11() {
-    assertSame(LanguageAlpha3Code.jpn, getByCode("jpn", false));
+    assertThat(getByCode("jpn", false)).isSameAs(LanguageAlpha3Code.jpn);
   }
 
 
   @Test
   public void test12() {
-    assertSame(LanguageAlpha3Code.jpn, getByCode("JPN", false));
+    assertThat(getByCode("JPN", false)).isSameAs(LanguageAlpha3Code.jpn);
   }
 
 
   @Test
   public void test13() {
-    assertSame(LanguageAlpha3Code.heb, getByCode("he"));
+    assertThat(getByCode("he")).isSameAs(LanguageAlpha3Code.heb);
   }
 
 
   @Test
   public void test14() {
-    assertSame(LanguageAlpha3Code.heb, getByCode("iw"));
+    assertThat(getByCode("iw")).isSameAs(LanguageAlpha3Code.heb);
   }
 
 
   @Test
   public void test15() {
-    assertSame(LanguageAlpha3Code.yid, getByCode("yi"));
+    assertThat(getByCode("yi")).isSameAs(LanguageAlpha3Code.yid);
   }
 
 
   @Test
   public void test16() {
-    assertSame(LanguageAlpha3Code.yid, getByCode("ji"));
+    assertThat(getByCode("ji")).isSameAs(LanguageAlpha3Code.yid);
   }
 
 
   @Test
   public void test17() {
-    assertSame(LanguageAlpha3Code.ind, getByCode("id"));
+    assertThat(getByCode("id")).isSameAs(LanguageAlpha3Code.ind);
   }
 
 
   @Test
   public void test18() {
-    assertSame(LanguageAlpha3Code.ind, getByCode("in"));
+    assertThat(getByCode("in")).isSameAs(LanguageAlpha3Code.ind);
   }
 
 
   @Test
   public void test19() {
-    assertSame(LanguageAlpha3Code.tib, LanguageAlpha3Code.bod.getSynonym());
+    assertThat(LanguageAlpha3Code.bod.getSynonym()).isSameAs(LanguageAlpha3Code.tib);
   }
 
 
   @Test
   public void test20() {
-    assertSame(LanguageAlpha3Code.bod, LanguageAlpha3Code.bod.getAlpha3T());
+    assertThat(LanguageAlpha3Code.bod.getAlpha3T()).isSameAs(LanguageAlpha3Code.bod);
   }
 
 
   @Test
   public void test21() {
-    assertSame(LanguageAlpha3Code.tib, LanguageAlpha3Code.bod.getAlpha3B());
+    assertThat(LanguageAlpha3Code.bod.getAlpha3B()).isSameAs(LanguageAlpha3Code.tib);
   }
 
 
   @Test
   public void test22() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.bod.getUsage());
+    assertThat(LanguageAlpha3Code.bod.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test23() {
-    assertSame(LanguageAlpha3Code.bod, LanguageAlpha3Code.tib.getSynonym());
+    assertThat(LanguageAlpha3Code.tib.getSynonym()).isSameAs(LanguageAlpha3Code.bod);
   }
 
 
   @Test
   public void test24() {
-    assertSame(LanguageAlpha3Code.bod, LanguageAlpha3Code.tib.getAlpha3T());
+    assertThat(LanguageAlpha3Code.tib.getAlpha3T()).isSameAs(LanguageAlpha3Code.bod);
   }
 
 
   @Test
   public void test25() {
-    assertSame(LanguageAlpha3Code.tib, LanguageAlpha3Code.tib.getAlpha3B());
+    assertThat(LanguageAlpha3Code.tib.getAlpha3B()).isSameAs(LanguageAlpha3Code.tib);
   }
 
 
   @Test
   public void test26() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.tib.getUsage());
+    assertThat(LanguageAlpha3Code.tib.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test27() {
-    assertSame(LanguageAlpha3Code.baq, LanguageAlpha3Code.eus.getSynonym());
+    assertThat(LanguageAlpha3Code.eus.getSynonym()).isSameAs(LanguageAlpha3Code.baq);
   }
 
 
   @Test
   public void test28() {
-    assertSame(LanguageAlpha3Code.eus, LanguageAlpha3Code.eus.getAlpha3T());
+    assertThat(LanguageAlpha3Code.eus.getAlpha3T()).isSameAs(LanguageAlpha3Code.eus);
   }
 
 
   @Test
   public void test29() {
-    assertSame(LanguageAlpha3Code.baq, LanguageAlpha3Code.eus.getAlpha3B());
+    assertThat(LanguageAlpha3Code.eus.getAlpha3B()).isSameAs(LanguageAlpha3Code.baq);
   }
 
 
   @Test
   public void test30() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.eus.getUsage());
+    assertThat(LanguageAlpha3Code.eus.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test31() {
-    assertSame(LanguageAlpha3Code.eus, LanguageAlpha3Code.baq.getSynonym());
+    assertThat(LanguageAlpha3Code.baq.getSynonym()).isSameAs(LanguageAlpha3Code.eus);
   }
 
 
   @Test
   public void test32() {
-    assertSame(LanguageAlpha3Code.eus, LanguageAlpha3Code.baq.getAlpha3T());
+    assertThat(LanguageAlpha3Code.baq.getAlpha3T()).isSameAs(LanguageAlpha3Code.eus);
   }
 
 
   @Test
   public void test33() {
-    assertSame(LanguageAlpha3Code.baq, LanguageAlpha3Code.baq.getAlpha3B());
+    assertThat(LanguageAlpha3Code.baq.getAlpha3B()).isSameAs(LanguageAlpha3Code.baq);
   }
 
 
   @Test
   public void test34() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.baq.getUsage());
+    assertThat(LanguageAlpha3Code.baq.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test35() {
-    assertSame(LanguageAlpha3Code.cze, LanguageAlpha3Code.ces.getSynonym());
+    assertThat(LanguageAlpha3Code.ces.getSynonym()).isSameAs(LanguageAlpha3Code.cze);
   }
 
 
   @Test
   public void test36() {
-    assertSame(LanguageAlpha3Code.ces, LanguageAlpha3Code.ces.getAlpha3T());
+    assertThat(LanguageAlpha3Code.ces.getAlpha3T()).isSameAs(LanguageAlpha3Code.ces);
   }
 
 
   @Test
   public void test37() {
-    assertSame(LanguageAlpha3Code.cze, LanguageAlpha3Code.ces.getAlpha3B());
+    assertThat(LanguageAlpha3Code.ces.getAlpha3B()).isSameAs(LanguageAlpha3Code.cze);
   }
 
 
   @Test
   public void test38() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.ces.getUsage());
+    assertThat(LanguageAlpha3Code.ces.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test39() {
-    assertSame(LanguageAlpha3Code.ces, LanguageAlpha3Code.cze.getSynonym());
+    assertThat(LanguageAlpha3Code.cze.getSynonym()).isSameAs(LanguageAlpha3Code.ces);
   }
 
 
   @Test
   public void test40() {
-    assertSame(LanguageAlpha3Code.ces, LanguageAlpha3Code.cze.getAlpha3T());
+    assertThat(LanguageAlpha3Code.cze.getAlpha3T()).isSameAs(LanguageAlpha3Code.ces);
   }
 
 
   @Test
   public void test41() {
-    assertSame(LanguageAlpha3Code.cze, LanguageAlpha3Code.cze.getAlpha3B());
+    assertThat(LanguageAlpha3Code.cze.getAlpha3B()).isSameAs(LanguageAlpha3Code.cze);
   }
 
 
   @Test
   public void test42() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.cze.getUsage());
+    assertThat(LanguageAlpha3Code.cze.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test43() {
-    assertSame(LanguageAlpha3Code.wel, LanguageAlpha3Code.cym.getSynonym());
+    assertThat(LanguageAlpha3Code.cym.getSynonym()).isSameAs(LanguageAlpha3Code.wel);
   }
 
 
   @Test
   public void test44() {
-    assertSame(LanguageAlpha3Code.cym, LanguageAlpha3Code.cym.getAlpha3T());
+    assertThat(LanguageAlpha3Code.cym.getAlpha3T()).isSameAs(LanguageAlpha3Code.cym);
   }
 
 
   @Test
   public void test45() {
-    assertSame(LanguageAlpha3Code.wel, LanguageAlpha3Code.cym.getAlpha3B());
+    assertThat(LanguageAlpha3Code.cym.getAlpha3B()).isSameAs(LanguageAlpha3Code.wel);
   }
 
 
   @Test
   public void test46() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.cym.getUsage());
+    assertThat(LanguageAlpha3Code.cym.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test47() {
-    assertSame(LanguageAlpha3Code.cym, LanguageAlpha3Code.wel.getSynonym());
+    assertThat(LanguageAlpha3Code.wel.getSynonym()).isSameAs(LanguageAlpha3Code.cym);
   }
 
 
   @Test
   public void test48() {
-    assertSame(LanguageAlpha3Code.cym, LanguageAlpha3Code.wel.getAlpha3T());
+    assertThat(LanguageAlpha3Code.wel.getAlpha3T()).isSameAs(LanguageAlpha3Code.cym);
   }
 
 
   @Test
   public void test49() {
-    assertSame(LanguageAlpha3Code.wel, LanguageAlpha3Code.wel.getAlpha3B());
+    assertThat(LanguageAlpha3Code.wel.getAlpha3B()).isSameAs(LanguageAlpha3Code.wel);
   }
 
 
   @Test
   public void test50() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.wel.getUsage());
+    assertThat(LanguageAlpha3Code.wel.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test51() {
-    assertSame(LanguageAlpha3Code.ger, LanguageAlpha3Code.deu.getSynonym());
+    assertThat(LanguageAlpha3Code.deu.getSynonym()).isSameAs(LanguageAlpha3Code.ger);
   }
 
 
   @Test
   public void test52() {
-    assertSame(LanguageAlpha3Code.deu, LanguageAlpha3Code.deu.getAlpha3T());
+    assertThat(LanguageAlpha3Code.deu.getAlpha3T()).isSameAs(LanguageAlpha3Code.deu);
   }
 
 
   @Test
   public void test53() {
-    assertSame(LanguageAlpha3Code.ger, LanguageAlpha3Code.deu.getAlpha3B());
+    assertThat(LanguageAlpha3Code.deu.getAlpha3B()).isSameAs(LanguageAlpha3Code.ger);
   }
 
 
   @Test
   public void test54() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.deu.getUsage());
+    assertThat(LanguageAlpha3Code.deu.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test55() {
-    assertSame(LanguageAlpha3Code.deu, LanguageAlpha3Code.ger.getSynonym());
+    assertThat(LanguageAlpha3Code.ger.getSynonym()).isSameAs(LanguageAlpha3Code.deu);
   }
 
 
   @Test
   public void test56() {
-    assertSame(LanguageAlpha3Code.deu, LanguageAlpha3Code.ger.getAlpha3T());
+    assertThat(LanguageAlpha3Code.ger.getAlpha3T()).isSameAs(LanguageAlpha3Code.deu);
   }
 
 
   @Test
   public void test57() {
-    assertSame(LanguageAlpha3Code.ger, LanguageAlpha3Code.ger.getAlpha3B());
+    assertThat(LanguageAlpha3Code.ger.getAlpha3B()).isSameAs(LanguageAlpha3Code.ger);
   }
 
 
   @Test
   public void test58() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.ger.getUsage());
+    assertThat(LanguageAlpha3Code.ger.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test59() {
-    assertSame(LanguageAlpha3Code.gre, LanguageAlpha3Code.ell.getSynonym());
+    assertThat(LanguageAlpha3Code.ell.getSynonym()).isSameAs(LanguageAlpha3Code.gre);
   }
 
 
   @Test
   public void test60() {
-    assertSame(LanguageAlpha3Code.ell, LanguageAlpha3Code.ell.getAlpha3T());
+    assertThat(LanguageAlpha3Code.ell.getAlpha3T()).isSameAs(LanguageAlpha3Code.ell);
   }
 
 
   @Test
   public void test61() {
-    assertSame(LanguageAlpha3Code.gre, LanguageAlpha3Code.ell.getAlpha3B());
+    assertThat(LanguageAlpha3Code.ell.getAlpha3B()).isSameAs(LanguageAlpha3Code.gre);
   }
 
 
   @Test
   public void test62() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.ell.getUsage());
+    assertThat(LanguageAlpha3Code.ell.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test63() {
-    assertSame(LanguageAlpha3Code.ell, LanguageAlpha3Code.gre.getSynonym());
+    assertThat(LanguageAlpha3Code.gre.getSynonym()).isSameAs(LanguageAlpha3Code.ell);
   }
 
 
   @Test
   public void test64() {
-    assertSame(LanguageAlpha3Code.ell, LanguageAlpha3Code.gre.getAlpha3T());
+    assertThat(LanguageAlpha3Code.gre.getAlpha3T()).isSameAs(LanguageAlpha3Code.ell);
   }
 
 
   @Test
   public void test65() {
-    assertSame(LanguageAlpha3Code.gre, LanguageAlpha3Code.gre.getAlpha3B());
+    assertThat(LanguageAlpha3Code.gre.getAlpha3B()).isSameAs(LanguageAlpha3Code.gre);
   }
 
 
   @Test
   public void test66() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.gre.getUsage());
+    assertThat(LanguageAlpha3Code.gre.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test67() {
-    assertSame(LanguageAlpha3Code.per, LanguageAlpha3Code.fas.getSynonym());
+    assertThat(LanguageAlpha3Code.fas.getSynonym()).isSameAs(LanguageAlpha3Code.per);
   }
 
 
   @Test
   public void test68() {
-    assertSame(LanguageAlpha3Code.fas, LanguageAlpha3Code.fas.getAlpha3T());
+    assertThat(LanguageAlpha3Code.fas.getAlpha3T()).isSameAs(LanguageAlpha3Code.fas);
   }
 
 
   @Test
   public void test69() {
-    assertSame(LanguageAlpha3Code.per, LanguageAlpha3Code.fas.getAlpha3B());
+    assertThat(LanguageAlpha3Code.fas.getAlpha3B()).isSameAs(LanguageAlpha3Code.per);
   }
 
 
   @Test
   public void test70() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.fas.getUsage());
+    assertThat(LanguageAlpha3Code.fas.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test71() {
-    assertSame(LanguageAlpha3Code.fas, LanguageAlpha3Code.per.getSynonym());
+    assertThat(LanguageAlpha3Code.per.getSynonym()).isSameAs(LanguageAlpha3Code.fas);
   }
 
 
   @Test
   public void test72() {
-    assertSame(LanguageAlpha3Code.fas, LanguageAlpha3Code.per.getAlpha3T());
+    assertThat(LanguageAlpha3Code.per.getAlpha3T()).isSameAs(LanguageAlpha3Code.fas);
   }
 
 
   @Test
   public void test73() {
-    assertSame(LanguageAlpha3Code.per, LanguageAlpha3Code.per.getAlpha3B());
+    assertThat(LanguageAlpha3Code.per.getAlpha3B()).isSameAs(LanguageAlpha3Code.per);
   }
 
 
   @Test
   public void test74() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.per.getUsage());
+    assertThat(LanguageAlpha3Code.per.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test75() {
-    assertSame(LanguageAlpha3Code.fre, LanguageAlpha3Code.fra.getSynonym());
+    assertThat(LanguageAlpha3Code.fra.getSynonym()).isSameAs(LanguageAlpha3Code.fre);
   }
 
 
   @Test
   public void test76() {
-    assertSame(LanguageAlpha3Code.fra, LanguageAlpha3Code.fra.getAlpha3T());
+    assertThat(LanguageAlpha3Code.fra.getAlpha3T()).isSameAs(LanguageAlpha3Code.fra);
   }
 
 
   @Test
   public void test77() {
-    assertSame(LanguageAlpha3Code.fre, LanguageAlpha3Code.fra.getAlpha3B());
+    assertThat(LanguageAlpha3Code.fra.getAlpha3B()).isSameAs(LanguageAlpha3Code.fre);
   }
 
 
   @Test
   public void test78() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.fra.getUsage());
+    assertThat(LanguageAlpha3Code.fra.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test79() {
-    assertSame(LanguageAlpha3Code.fra, LanguageAlpha3Code.fre.getSynonym());
+    assertThat(LanguageAlpha3Code.fre.getSynonym()).isSameAs(LanguageAlpha3Code.fra);
   }
 
 
   @Test
   public void test80() {
-    assertSame(LanguageAlpha3Code.fra, LanguageAlpha3Code.fre.getAlpha3T());
+    assertThat(LanguageAlpha3Code.fre.getAlpha3T()).isSameAs(LanguageAlpha3Code.fra);
   }
 
 
   @Test
   public void test81() {
-    assertSame(LanguageAlpha3Code.fre, LanguageAlpha3Code.fre.getAlpha3B());
+    assertThat(LanguageAlpha3Code.fre.getAlpha3B()).isSameAs(LanguageAlpha3Code.fre);
   }
 
 
   @Test
   public void test82() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.fre.getUsage());
+    assertThat(LanguageAlpha3Code.fre.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test83() {
-    assertSame(LanguageAlpha3Code.arm, LanguageAlpha3Code.hye.getSynonym());
+    assertThat(LanguageAlpha3Code.hye.getSynonym()).isSameAs(LanguageAlpha3Code.arm);
   }
 
 
   @Test
   public void test84() {
-    assertSame(LanguageAlpha3Code.hye, LanguageAlpha3Code.hye.getAlpha3T());
+    assertThat(LanguageAlpha3Code.hye.getAlpha3T()).isSameAs(LanguageAlpha3Code.hye);
   }
 
 
   @Test
   public void test85() {
-    assertSame(LanguageAlpha3Code.arm, LanguageAlpha3Code.hye.getAlpha3B());
+    assertThat(LanguageAlpha3Code.hye.getAlpha3B()).isSameAs(LanguageAlpha3Code.arm);
   }
 
 
   @Test
   public void test86() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.hye.getUsage());
+    assertThat(LanguageAlpha3Code.hye.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test87() {
-    assertSame(LanguageAlpha3Code.hye, LanguageAlpha3Code.arm.getSynonym());
+    assertThat(LanguageAlpha3Code.arm.getSynonym()).isSameAs(LanguageAlpha3Code.hye);
   }
 
 
   @Test
   public void test88() {
-    assertSame(LanguageAlpha3Code.hye, LanguageAlpha3Code.arm.getAlpha3T());
+    assertThat(LanguageAlpha3Code.arm.getAlpha3T()).isSameAs(LanguageAlpha3Code.hye);
   }
 
 
   @Test
   public void test89() {
-    assertSame(LanguageAlpha3Code.arm, LanguageAlpha3Code.arm.getAlpha3B());
+    assertThat(LanguageAlpha3Code.arm.getAlpha3B()).isSameAs(LanguageAlpha3Code.arm);
   }
 
 
   @Test
   public void test90() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.arm.getUsage());
+    assertThat(LanguageAlpha3Code.arm.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test91() {
-    assertSame(LanguageAlpha3Code.ice, LanguageAlpha3Code.isl.getSynonym());
+    assertThat(LanguageAlpha3Code.isl.getSynonym()).isSameAs(LanguageAlpha3Code.ice);
   }
 
 
   @Test
   public void test92() {
-    assertSame(LanguageAlpha3Code.isl, LanguageAlpha3Code.isl.getAlpha3T());
+    assertThat(LanguageAlpha3Code.isl.getAlpha3T()).isSameAs(LanguageAlpha3Code.isl);
   }
 
 
   @Test
   public void test93() {
-    assertSame(LanguageAlpha3Code.ice, LanguageAlpha3Code.isl.getAlpha3B());
+    assertThat(LanguageAlpha3Code.isl.getAlpha3B()).isSameAs(LanguageAlpha3Code.ice);
   }
 
 
   @Test
   public void test94() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.isl.getUsage());
+    assertThat(LanguageAlpha3Code.isl.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test95() {
-    assertSame(LanguageAlpha3Code.isl, LanguageAlpha3Code.ice.getSynonym());
+    assertThat(LanguageAlpha3Code.ice.getSynonym()).isSameAs(LanguageAlpha3Code.isl);
   }
 
 
   @Test
   public void test96() {
-    assertSame(LanguageAlpha3Code.isl, LanguageAlpha3Code.ice.getAlpha3T());
+    assertThat(LanguageAlpha3Code.ice.getAlpha3T()).isSameAs(LanguageAlpha3Code.isl);
   }
 
 
   @Test
   public void test97() {
-    assertSame(LanguageAlpha3Code.ice, LanguageAlpha3Code.ice.getAlpha3B());
+    assertThat(LanguageAlpha3Code.ice.getAlpha3B()).isSameAs(LanguageAlpha3Code.ice);
   }
 
 
   @Test
   public void test98() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.ice.getUsage());
+    assertThat(LanguageAlpha3Code.ice.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test99() {
-    assertSame(LanguageAlpha3Code.geo, LanguageAlpha3Code.kat.getSynonym());
+    assertThat(LanguageAlpha3Code.kat.getSynonym()).isSameAs(LanguageAlpha3Code.geo);
   }
 
 
   @Test
   public void test100() {
-    assertSame(LanguageAlpha3Code.kat, LanguageAlpha3Code.kat.getAlpha3T());
+    assertThat(LanguageAlpha3Code.kat.getAlpha3T()).isSameAs(LanguageAlpha3Code.kat);
   }
 
 
   @Test
   public void test101() {
-    assertSame(LanguageAlpha3Code.geo, LanguageAlpha3Code.kat.getAlpha3B());
+    assertThat(LanguageAlpha3Code.kat.getAlpha3B()).isSameAs(LanguageAlpha3Code.geo);
   }
 
 
   @Test
   public void test102() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.kat.getUsage());
+    assertThat(LanguageAlpha3Code.kat.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test103() {
-    assertSame(LanguageAlpha3Code.kat, LanguageAlpha3Code.geo.getSynonym());
+    assertThat(LanguageAlpha3Code.geo.getSynonym()).isSameAs(LanguageAlpha3Code.kat);
   }
 
 
   @Test
   public void test104() {
-    assertSame(LanguageAlpha3Code.kat, LanguageAlpha3Code.geo.getAlpha3T());
+    assertThat(LanguageAlpha3Code.geo.getAlpha3T()).isSameAs(LanguageAlpha3Code.kat);
   }
 
 
   @Test
   public void test105() {
-    assertSame(LanguageAlpha3Code.geo, LanguageAlpha3Code.geo.getAlpha3B());
+    assertThat(LanguageAlpha3Code.geo.getAlpha3B()).isSameAs(LanguageAlpha3Code.geo);
   }
 
 
   @Test
   public void test106() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.geo.getUsage());
+    assertThat(LanguageAlpha3Code.geo.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test107() {
-    assertSame(LanguageAlpha3Code.mao, LanguageAlpha3Code.mri.getSynonym());
+    assertThat(LanguageAlpha3Code.mri.getSynonym()).isSameAs(LanguageAlpha3Code.mao);
   }
 
 
   @Test
   public void test108() {
-    assertSame(LanguageAlpha3Code.mri, LanguageAlpha3Code.mri.getAlpha3T());
+    assertThat(LanguageAlpha3Code.mri.getAlpha3T()).isSameAs(LanguageAlpha3Code.mri);
   }
 
 
   @Test
   public void test109() {
-    assertSame(LanguageAlpha3Code.mao, LanguageAlpha3Code.mri.getAlpha3B());
+    assertThat(LanguageAlpha3Code.mri.getAlpha3B()).isSameAs(LanguageAlpha3Code.mao);
   }
 
 
   @Test
   public void test110() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.mri.getUsage());
+    assertThat(LanguageAlpha3Code.mri.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test111() {
-    assertSame(LanguageAlpha3Code.mri, LanguageAlpha3Code.mao.getSynonym());
+    assertThat(LanguageAlpha3Code.mao.getSynonym()).isSameAs(LanguageAlpha3Code.mri);
   }
 
 
   @Test
   public void test112() {
-    assertSame(LanguageAlpha3Code.mri, LanguageAlpha3Code.mao.getAlpha3T());
+    assertThat(LanguageAlpha3Code.mao.getAlpha3T()).isSameAs(LanguageAlpha3Code.mri);
   }
 
 
   @Test
   public void test113() {
-    assertSame(LanguageAlpha3Code.mao, LanguageAlpha3Code.mao.getAlpha3B());
+    assertThat(LanguageAlpha3Code.mao.getAlpha3B()).isSameAs(LanguageAlpha3Code.mao);
   }
 
 
   @Test
   public void test114() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.mao.getUsage());
+    assertThat(LanguageAlpha3Code.mao.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test115() {
-    assertSame(LanguageAlpha3Code.mac, LanguageAlpha3Code.mkd.getSynonym());
+    assertThat(LanguageAlpha3Code.mkd.getSynonym()).isSameAs(LanguageAlpha3Code.mac);
   }
 
 
   @Test
   public void test116() {
-    assertSame(LanguageAlpha3Code.mkd, LanguageAlpha3Code.mkd.getAlpha3T());
+    assertThat(LanguageAlpha3Code.mkd.getAlpha3T()).isSameAs(LanguageAlpha3Code.mkd);
   }
 
 
   @Test
   public void test117() {
-    assertSame(LanguageAlpha3Code.mac, LanguageAlpha3Code.mkd.getAlpha3B());
+    assertThat(LanguageAlpha3Code.mkd.getAlpha3B()).isSameAs(LanguageAlpha3Code.mac);
   }
 
 
   @Test
   public void test118() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.mkd.getUsage());
+    assertThat(LanguageAlpha3Code.mkd.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test119() {
-    assertSame(LanguageAlpha3Code.mkd, LanguageAlpha3Code.mac.getSynonym());
+    assertThat(LanguageAlpha3Code.mac.getSynonym()).isSameAs(LanguageAlpha3Code.mkd);
   }
 
 
   @Test
   public void test120() {
-    assertSame(LanguageAlpha3Code.mkd, LanguageAlpha3Code.mac.getAlpha3T());
+    assertThat(LanguageAlpha3Code.mac.getAlpha3T()).isSameAs(LanguageAlpha3Code.mkd);
   }
 
 
   @Test
   public void test121() {
-    assertSame(LanguageAlpha3Code.mac, LanguageAlpha3Code.mac.getAlpha3B());
+    assertThat(LanguageAlpha3Code.mac.getAlpha3B()).isSameAs(LanguageAlpha3Code.mac);
   }
 
 
   @Test
   public void test122() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.mac.getUsage());
+    assertThat(LanguageAlpha3Code.mac.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test123() {
-    assertSame(LanguageAlpha3Code.may, LanguageAlpha3Code.msa.getSynonym());
+    assertThat(LanguageAlpha3Code.msa.getSynonym()).isSameAs(LanguageAlpha3Code.may);
   }
 
 
   @Test
   public void test124() {
-    assertSame(LanguageAlpha3Code.msa, LanguageAlpha3Code.msa.getAlpha3T());
+    assertThat(LanguageAlpha3Code.msa.getAlpha3T()).isSameAs(LanguageAlpha3Code.msa);
   }
 
 
   @Test
   public void test125() {
-    assertSame(LanguageAlpha3Code.may, LanguageAlpha3Code.msa.getAlpha3B());
+    assertThat(LanguageAlpha3Code.msa.getAlpha3B()).isSameAs(LanguageAlpha3Code.may);
   }
 
 
   @Test
   public void test126() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.msa.getUsage());
+    assertThat(LanguageAlpha3Code.msa.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test127() {
-    assertSame(LanguageAlpha3Code.msa, LanguageAlpha3Code.may.getSynonym());
+    assertThat(LanguageAlpha3Code.may.getSynonym()).isSameAs(LanguageAlpha3Code.msa);
   }
 
 
   @Test
   public void test128() {
-    assertSame(LanguageAlpha3Code.msa, LanguageAlpha3Code.may.getAlpha3T());
+    assertThat(LanguageAlpha3Code.may.getAlpha3T()).isSameAs(LanguageAlpha3Code.msa);
   }
 
 
   @Test
   public void test129() {
-    assertSame(LanguageAlpha3Code.may, LanguageAlpha3Code.may.getAlpha3B());
+    assertThat(LanguageAlpha3Code.may.getAlpha3B()).isSameAs(LanguageAlpha3Code.may);
   }
 
 
   @Test
   public void test130() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.may.getUsage());
+    assertThat(LanguageAlpha3Code.may.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test131() {
-    assertSame(LanguageAlpha3Code.bur, LanguageAlpha3Code.mya.getSynonym());
+    assertThat(LanguageAlpha3Code.mya.getSynonym()).isSameAs(LanguageAlpha3Code.bur);
   }
 
 
   @Test
   public void test132() {
-    assertSame(LanguageAlpha3Code.mya, LanguageAlpha3Code.mya.getAlpha3T());
+    assertThat(LanguageAlpha3Code.mya.getAlpha3T()).isSameAs(LanguageAlpha3Code.mya);
   }
 
 
   @Test
   public void test133() {
-    assertSame(LanguageAlpha3Code.bur, LanguageAlpha3Code.mya.getAlpha3B());
+    assertThat(LanguageAlpha3Code.mya.getAlpha3B()).isSameAs(LanguageAlpha3Code.bur);
   }
 
 
   @Test
   public void test134() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.mya.getUsage());
+    assertThat(LanguageAlpha3Code.mya.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test135() {
-    assertSame(LanguageAlpha3Code.mya, LanguageAlpha3Code.bur.getSynonym());
+    assertThat(LanguageAlpha3Code.bur.getSynonym()).isSameAs(LanguageAlpha3Code.mya);
   }
 
 
   @Test
   public void test136() {
-    assertSame(LanguageAlpha3Code.mya, LanguageAlpha3Code.bur.getAlpha3T());
+    assertThat(LanguageAlpha3Code.bur.getAlpha3T()).isSameAs(LanguageAlpha3Code.mya);
   }
 
 
   @Test
   public void test137() {
-    assertSame(LanguageAlpha3Code.bur, LanguageAlpha3Code.bur.getAlpha3B());
+    assertThat(LanguageAlpha3Code.bur.getAlpha3B()).isSameAs(LanguageAlpha3Code.bur);
   }
 
 
   @Test
   public void test138() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.bur.getUsage());
+    assertThat(LanguageAlpha3Code.bur.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test139() {
-    assertSame(LanguageAlpha3Code.dut, LanguageAlpha3Code.nld.getSynonym());
+    assertThat(LanguageAlpha3Code.nld.getSynonym()).isSameAs(LanguageAlpha3Code.dut);
   }
 
 
   @Test
   public void test140() {
-    assertSame(LanguageAlpha3Code.nld, LanguageAlpha3Code.nld.getAlpha3T());
+    assertThat(LanguageAlpha3Code.nld.getAlpha3T()).isSameAs(LanguageAlpha3Code.nld);
   }
 
 
   @Test
   public void test141() {
-    assertSame(LanguageAlpha3Code.dut, LanguageAlpha3Code.nld.getAlpha3B());
+    assertThat(LanguageAlpha3Code.nld.getAlpha3B()).isSameAs(LanguageAlpha3Code.dut);
   }
 
 
   @Test
   public void test142() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.nld.getUsage());
+    assertThat(LanguageAlpha3Code.nld.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test143() {
-    assertSame(LanguageAlpha3Code.nld, LanguageAlpha3Code.dut.getSynonym());
+    assertThat(LanguageAlpha3Code.dut.getSynonym()).isSameAs(LanguageAlpha3Code.nld);
   }
 
 
   @Test
   public void test144() {
-    assertSame(LanguageAlpha3Code.nld, LanguageAlpha3Code.dut.getAlpha3T());
+    assertThat(LanguageAlpha3Code.dut.getAlpha3T()).isSameAs(LanguageAlpha3Code.nld);
   }
 
 
   @Test
   public void test145() {
-    assertSame(LanguageAlpha3Code.dut, LanguageAlpha3Code.dut.getAlpha3B());
+    assertThat(LanguageAlpha3Code.dut.getAlpha3B()).isSameAs(LanguageAlpha3Code.dut);
   }
 
 
   @Test
   public void test146() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.dut.getUsage());
+    assertThat(LanguageAlpha3Code.dut.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test147() {
-    assertSame(LanguageAlpha3Code.rum, LanguageAlpha3Code.ron.getSynonym());
+    assertThat(LanguageAlpha3Code.ron.getSynonym()).isSameAs(LanguageAlpha3Code.rum);
   }
 
 
   @Test
   public void test148() {
-    assertSame(LanguageAlpha3Code.ron, LanguageAlpha3Code.ron.getAlpha3T());
+    assertThat(LanguageAlpha3Code.ron.getAlpha3T()).isSameAs(LanguageAlpha3Code.ron);
   }
 
 
   @Test
   public void test149() {
-    assertSame(LanguageAlpha3Code.rum, LanguageAlpha3Code.ron.getAlpha3B());
+    assertThat(LanguageAlpha3Code.ron.getAlpha3B()).isSameAs(LanguageAlpha3Code.rum);
   }
 
 
   @Test
   public void test150() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.ron.getUsage());
+    assertThat(LanguageAlpha3Code.ron.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test151() {
-    assertSame(LanguageAlpha3Code.ron, LanguageAlpha3Code.rum.getSynonym());
+    assertThat(LanguageAlpha3Code.rum.getSynonym()).isSameAs(LanguageAlpha3Code.ron);
   }
 
 
   @Test
   public void test152() {
-    assertSame(LanguageAlpha3Code.ron, LanguageAlpha3Code.rum.getAlpha3T());
+    assertThat(LanguageAlpha3Code.rum.getAlpha3T()).isSameAs(LanguageAlpha3Code.ron);
   }
 
 
   @Test
   public void test153() {
-    assertSame(LanguageAlpha3Code.rum, LanguageAlpha3Code.rum.getAlpha3B());
+    assertThat(LanguageAlpha3Code.rum.getAlpha3B()).isSameAs(LanguageAlpha3Code.rum);
   }
 
 
   @Test
   public void test154() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.rum.getUsage());
+    assertThat(LanguageAlpha3Code.rum.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test155() {
-    assertSame(LanguageAlpha3Code.slo, LanguageAlpha3Code.slk.getSynonym());
+    assertThat(LanguageAlpha3Code.slk.getSynonym()).isSameAs(LanguageAlpha3Code.slo);
   }
 
 
   @Test
   public void test156() {
-    assertSame(LanguageAlpha3Code.slk, LanguageAlpha3Code.slk.getAlpha3T());
+    assertThat(LanguageAlpha3Code.slk.getAlpha3T()).isSameAs(LanguageAlpha3Code.slk);
   }
 
 
   @Test
   public void test157() {
-    assertSame(LanguageAlpha3Code.slo, LanguageAlpha3Code.slk.getAlpha3B());
+    assertThat(LanguageAlpha3Code.slk.getAlpha3B()).isSameAs(LanguageAlpha3Code.slo);
   }
 
 
   @Test
   public void test158() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.slk.getUsage());
+    assertThat(LanguageAlpha3Code.slk.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test159() {
-    assertSame(LanguageAlpha3Code.slk, LanguageAlpha3Code.slo.getSynonym());
+    assertThat(LanguageAlpha3Code.slo.getSynonym()).isSameAs(LanguageAlpha3Code.slk);
   }
 
 
   @Test
   public void test160() {
-    assertSame(LanguageAlpha3Code.slk, LanguageAlpha3Code.slo.getAlpha3T());
+    assertThat(LanguageAlpha3Code.slo.getAlpha3T()).isSameAs(LanguageAlpha3Code.slk);
   }
 
 
   @Test
   public void test161() {
-    assertSame(LanguageAlpha3Code.slo, LanguageAlpha3Code.slo.getAlpha3B());
+    assertThat(LanguageAlpha3Code.slo.getAlpha3B()).isSameAs(LanguageAlpha3Code.slo);
   }
 
 
   @Test
   public void test162() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.slo.getUsage());
+    assertThat(LanguageAlpha3Code.slo.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test163() {
-    assertSame(LanguageAlpha3Code.alb, LanguageAlpha3Code.sqi.getSynonym());
+    assertThat(LanguageAlpha3Code.sqi.getSynonym()).isSameAs(LanguageAlpha3Code.alb);
   }
 
 
   @Test
   public void test164() {
-    assertSame(LanguageAlpha3Code.sqi, LanguageAlpha3Code.sqi.getAlpha3T());
+    assertThat(LanguageAlpha3Code.sqi.getAlpha3T()).isSameAs(LanguageAlpha3Code.sqi);
   }
 
 
   @Test
   public void test165() {
-    assertSame(LanguageAlpha3Code.alb, LanguageAlpha3Code.sqi.getAlpha3B());
+    assertThat(LanguageAlpha3Code.sqi.getAlpha3B()).isSameAs(LanguageAlpha3Code.alb);
   }
 
 
   @Test
   public void test166() {
-    assertSame(TERMINOLOGY, LanguageAlpha3Code.sqi.getUsage());
+    assertThat(LanguageAlpha3Code.sqi.getUsage()).isSameAs(TERMINOLOGY);
   }
 
 
   @Test
   public void test167() {
-    assertSame(LanguageAlpha3Code.sqi, LanguageAlpha3Code.alb.getSynonym());
+    assertThat(LanguageAlpha3Code.alb.getSynonym()).isSameAs(LanguageAlpha3Code.sqi);
   }
 
 
   @Test
   public void test168() {
-    assertSame(LanguageAlpha3Code.sqi, LanguageAlpha3Code.alb.getAlpha3T());
+    assertThat(LanguageAlpha3Code.alb.getAlpha3T()).isSameAs(LanguageAlpha3Code.sqi);
   }
 
 
   @Test
   public void test169() {
-    assertSame(LanguageAlpha3Code.alb, LanguageAlpha3Code.alb.getAlpha3B());
+    assertThat(LanguageAlpha3Code.alb.getAlpha3B()).isSameAs(LanguageAlpha3Code.alb);
   }
 
 
   @Test
   public void test170() {
-    assertSame(BIBLIOGRAPHY, LanguageAlpha3Code.alb.getUsage());
+    assertThat(LanguageAlpha3Code.alb.getUsage()).isSameAs(BIBLIOGRAPHY);
   }
 
 
   @Test
   public void test171() {
-    assertSame(LanguageAlpha3Code.jpn, LanguageAlpha3Code.jpn.getSynonym());
+    assertThat(LanguageAlpha3Code.jpn.getSynonym()).isSameAs(LanguageAlpha3Code.jpn);
   }
 
 
   @Test
   public void test172() {
-    assertSame(LanguageAlpha3Code.jpn, LanguageAlpha3Code.jpn.getAlpha3T());
+    assertThat(LanguageAlpha3Code.jpn.getAlpha3T()).isSameAs(LanguageAlpha3Code.jpn);
   }
 
 
   @Test
   public void test173() {
-    assertSame(LanguageAlpha3Code.jpn, LanguageAlpha3Code.jpn.getAlpha3B());
+    assertThat(LanguageAlpha3Code.jpn.getAlpha3B()).isSameAs(LanguageAlpha3Code.jpn);
   }
 
 
   @Test
   public void test174() {
-    assertSame(COMMON, LanguageAlpha3Code.jpn.getUsage());
+    assertThat(LanguageAlpha3Code.jpn.getUsage()).isSameAs(COMMON);
   }
 
 
   @Test
   public void test175() {
-    assertSame("Japanese", LanguageAlpha3Code.jpn.getName());
+    assertThat(LanguageAlpha3Code.jpn.getName()).isSameAs("Japanese");
   }
 
 
   @Test
   public void test176() {
-    assertSame(LanguageAlpha3Code.New, getByCode("New", true));
+    assertThat(getByCode("New", true)).isSameAs(LanguageAlpha3Code.New);
   }
 
 
   @Test
   public void test177() {
-    assertSame(LanguageAlpha3Code.New, getByCode("new", true));
+    assertThat(getByCode("new", true)).isSameAs(LanguageAlpha3Code.New);
   }
 
 
   @Test
   public void test178() {
-    assertNull(getByCode("NEW", true));
+    assertThat(getByCode("NEW", true)).isNull();
   }
 
 
   @Test
   public void test179() {
-    assertEquals("new", LanguageAlpha3Code.New.toString());
+    assertThat(LanguageAlpha3Code.New.toString()).isEqualTo("new");
   }
 
 
@@ -1099,46 +1095,46 @@ public class LanguageAlpha3CodeTest {
   public void test180() {
     List<LanguageAlpha3Code> list = LanguageAlpha3Code.findByName("Old.*");
 
-    assertEquals(7, list.size());
+    assertThat(list).hasSize(7);
 
     // ang : Old English
-    assertTrue(list.contains(LanguageAlpha3Code.ang));
+    assertThat(list).contains(LanguageAlpha3Code.ang);
 
     // fro : Old French
-    assertTrue(list.contains(LanguageAlpha3Code.fro));
+    assertThat(list).contains(LanguageAlpha3Code.fro);
 
     // goh : Old High German
-    assertTrue(list.contains(LanguageAlpha3Code.goh));
+    assertThat(list).contains(LanguageAlpha3Code.goh);
 
     // non : Old Norse
-    assertTrue(list.contains(LanguageAlpha3Code.non));
+    assertThat(list).contains(LanguageAlpha3Code.non);
 
     // peo : Old Persian
-    assertTrue(list.contains(LanguageAlpha3Code.peo));
+    assertThat(list).contains(LanguageAlpha3Code.peo);
 
     // pro : Old Provencal
-    assertTrue(list.contains(LanguageAlpha3Code.pro));
+    assertThat(list).contains(LanguageAlpha3Code.pro);
 
     // sga : Old Irish
-    assertTrue(list.contains(LanguageAlpha3Code.fro));
+    assertThat(list).contains(LanguageAlpha3Code.fro);
   }
 
 
   @Test
   public void test181() {
-    assertSame(LanguageAlpha3Code.undefined, getByCode("undefined"));
+    assertThat(getByCode("undefined")).isSameAs(LanguageAlpha3Code.undefined);
   }
 
 
   @Test
   public void test182() {
-    assertNull(getByCode("UNDEFINED"));
+    assertThat(getByCode("UNDEFINED")).isNull();
   }
 
 
   @Test
   public void test183() {
-    assertSame(LanguageAlpha3Code.undefined, getByCode("UNDEFINED", false));
+    assertThat(getByCode("UNDEFINED", false)).isSameAs(LanguageAlpha3Code.undefined);
   }
 
   @Test
